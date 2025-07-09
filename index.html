@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-    <title>Plot Listing HTML5 Website Template</title>
+    <title>Senior Software Engineer Portfolio</title>
 
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -21,13 +21,33 @@
     <link rel="stylesheet" href="assets/css/templatemo-plot-listing.css">
     <link rel="stylesheet" href="assets/css/animated.css">
     <link rel="stylesheet" href="assets/css/owl.css">
-<!--
-
-TemplateMo 564 Plot Listing
-
-https://templatemo.com/tm-564-plot-listing
-
--->
+    
+    <!-- Custom Portfolio Styles -->
+    <style>
+      :root {
+        --primary-color: #2c3e50;
+        --secondary-color: #3498db;
+        --accent-color: #e74c3c;
+        --text-color: #2c3e50;
+        --light-bg: #ecf0f1;
+      }
+      .tech-stack {
+        background: var(--light-bg);
+        padding: 2rem 0;
+      }
+      .tech-item {
+        text-align: center;
+        padding: 1rem;
+        margin: 0.5rem;
+        background: white;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        transition: transform 0.3s ease;
+      }
+      .tech-item:hover {
+        transform: translateY(-5px);
+      }
+    </style>
   </head>
 
 <body>
@@ -58,10 +78,10 @@ https://templatemo.com/tm-564-plot-listing
             <!-- ***** Menu Start ***** -->
             <ul class="nav">
               <li><a href="index.html" class="active">Home</a></li>
-              <li><a href="category.html">Category</a></li>
-              <li><a href="listing.html">Listing</a></li>
-              <li><a href="contact.html">Contact Us</a></li> 
-              <li><div class="main-white-button"><a href="#"><i class="fa fa-plus"></i> Add Your Listing</a></div></li> 
+              <li><a href="category.html">Projects</a></li>
+              <li><a href="listing.html">Experience</a></li>
+              <li><a href="contact.html">Contact</a></li> 
+              <li><div class="main-white-button"><a href="#skills"><i class="fa fa-code"></i> Tech Stack</a></div></li> 
             </ul>        
             <a class='menu-trigger'>
                 <span>Menu</span>
@@ -79,54 +99,42 @@ https://templatemo.com/tm-564-plot-listing
       <div class="row">
         <div class="col-lg-12">
           <div class="top-text header-text">
-            <h6>Over 36,500+ Active Listings</h6>
-            <h2>Find Nearby Places &amp; Things</h2>
+            <h6>Senior Software Engineer</h6>
+            <h2>Building Scalable Systems &amp; Leading Technical Teams</h2>
+            <p>Passionate about creating robust, efficient solutions and mentoring the next generation of developers. Experienced in full-stack development, cloud architecture, and agile methodologies.</p>
           </div>
         </div>
         <div class="col-lg-12">
-          <form id="search-form" name="gs" method="submit" role="search" action="#">
-            <div class="row">
-              <div class="col-lg-3 align-self-center">
-                  <fieldset>
-                      <select name="area" class="form-select" aria-label="Area" id="chooseCategory" onchange="this.form.click()">
-                          <option selected>All Areas</option>
-                          <option value="New Village">New Village</option>
-                          <option value="Old Town">Old Town</option>
-                          <option value="Modern City">Modern City</option>
-                      </select>
-                  </fieldset>
-              </div>
-              <div class="col-lg-3 align-self-center">
-                  <fieldset>
-                      <input type="address" name="address" class="searchText" placeholder="Enter a location" autocomplete="on" required>
-                  </fieldset>
-              </div>
-              <div class="col-lg-3 align-self-center">
-                  <fieldset>
-                      <select name="price" class="form-select" aria-label="Default select example" id="chooseCategory" onchange="this.form.click()">
-                          <option selected>Price Range</option>
-                          <option value="$100 - $250">$100 - $250</option>
-                          <option value="$250 - $500">$250 - $500</option>
-                          <option value="$500 - $1000">$500 - $1,000</option>
-                          <option value="$1000+">$1,000 or more</option>
-                      </select>
-                  </fieldset>
-              </div>
-              <div class="col-lg-3">                        
-                  <fieldset>
-                      <button class="main-button"><i class="fa fa-search"></i> Search Now</button>
-                  </fieldset>
+          <div class="row">
+            <div class="col-lg-3">
+              <div class="main-button">
+                <a href="#projects"><i class="fa fa-eye"></i> View Projects</a>
               </div>
             </div>
-          </form>
+            <div class="col-lg-3">
+              <div class="main-button">
+                <a href="assets/resume.pdf" target="_blank"><i class="fa fa-download"></i> Download Resume</a>
+              </div>
+            </div>
+            <div class="col-lg-3">
+              <div class="main-button">
+                <a href="https://github.com/knowvate" target="_blank"><i class="fa fa-github"></i> GitHub</a>
+              </div>
+            </div>
+            <div class="col-lg-3">
+              <div class="main-button">
+                <a href="https://linkedin.com/in/yourprofile" target="_blank"><i class="fa fa-linkedin"></i> LinkedIn</a>
+              </div>
+            </div>
+          </div>
         </div>
         <div class="col-lg-10 offset-lg-1">
           <ul class="categories">
-            <li><a href="category.html"><span class="icon"><img src="assets/images/search-icon-01.png" alt="Home"></span> Apartments</a></li>
-            <li><a href="listing.html"><span class="icon"><img src="assets/images/search-icon-02.png" alt="Food"></span> Food &amp; Life</a></li>
-            <li><a href="#"><span class="icon"><img src="assets/images/search-icon-03.png" alt="Vehicle"></span> Cars</a></li>
-            <li><a href="#"><span class="icon"><img src="assets/images/search-icon-04.png" alt="Shopping"></span> Shopping</a></li>
-            <li><a href="#"><span class="icon"><img src="assets/images/search-icon-05.png" alt="Travel"></span> Traveling</a></li>
+            <li><a href="category.html"><span class="icon"><img src="assets/images/search-icon-01.png" alt="Backend"></span> Backend Systems</a></li>
+            <li><a href="category.html"><span class="icon"><img src="assets/images/search-icon-02.png" alt="Frontend"></span> Frontend Apps</a></li>
+            <li><a href="category.html"><span class="icon"><img src="assets/images/search-icon-03.png" alt="DevOps"></span> DevOps & Cloud</a></li>
+            <li><a href="category.html"><span class="icon"><img src="assets/images/search-icon-04.png" alt="Mobile"></span> Mobile Development</a></li>
+            <li><a href="category.html"><span class="icon"><img src="assets/images/search-icon-05.png" alt="Open Source"></span> Open Source</a></li>
           </ul>
         </div>
       </div>
@@ -134,13 +142,13 @@ https://templatemo.com/tm-564-plot-listing
   </div>
 
 
-  <div class="popular-categories">
+  <div class="popular-categories" id="skills">
     <div class="container">
       <div class="row">
         <div class="col-lg-12">
           <div class="section-heading">
-            <h2>Popular Categories</h2>
-            <h6>Check Them Out</h6>
+            <h2>Technical Expertise</h2>
+            <h6>Core Technologies & Skills</h6>
           </div>
         </div>
         <div class="col-lg-12">
@@ -152,31 +160,31 @@ https://templatemo.com/tm-564-plot-listing
                     <div class="first-thumb active">
                       <div class="thumb">
                         <span class="icon"><img src="assets/images/search-icon-01.png" alt=""></span>
-                        Apartments
+                        Backend Development
                       </div>
                     </div>
                     <div>
                       <div class="thumb">                 
                         <span class="icon"><img src="assets/images/search-icon-02.png" alt=""></span>
-                        Food &amp; Life
+                        Frontend & Mobile
                       </div>
                     </div>
                     <div>
                       <div class="thumb">                 
                         <span class="icon"><img src="assets/images/search-icon-03.png" alt=""></span>
-                        Cars
+                        DevOps & Cloud
                       </div>
                     </div>
                     <div>
                       <div class="thumb">                 
                         <span class="icon"><img src="assets/images/search-icon-04.png" alt=""></span>
-                        Shopping
+                        Architecture & Design
                       </div>
                     </div>
                     <div class="last-thumb">
                       <div class="thumb">                 
                         <span class="icon"><img src="assets/images/search-icon-05.png" alt=""></span>
-                        Traveling
+                        Leadership & Process
                       </div>
                     </div>
                   </div>
@@ -189,9 +197,12 @@ https://templatemo.com/tm-564-plot-listing
                           <div class="row">
                             <div class="col-lg-5 align-self-center">
                               <div class="left-text">
-                                <h4>One Of The Most Trending Stuffs Right Now!</h4>
-                                <p>Plot Listing is a responsive Bootstrap 5 website template that included 4 different HTML pages. This template is provided by TemplateMo website. You can apply this layout for your static or dynamic CMS websites.</p>
-                                <div class="main-white-button"><a href="#"><i class="fa fa-eye"></i> Discover More</a></div>
+                                <h4>Scalable Backend Systems</h4>
+                                <p><strong>Languages:</strong> Python, Java, Node.js, Go, C#<br>
+                                <strong>Frameworks:</strong> Spring Boot, Django, Express.js, FastAPI<br>
+                                <strong>Databases:</strong> PostgreSQL, MongoDB, Redis, Elasticsearch<br>
+                                <strong>APIs:</strong> REST, GraphQL, gRPC, WebSockets</p>
+                                <div class="main-white-button"><a href="category.html"><i class="fa fa-eye"></i> View Backend Projects</a></div>
                               </div>
                             </div>
                             <div class="col-lg-7 align-self-center">
@@ -209,14 +220,17 @@ https://templatemo.com/tm-564-plot-listing
                           <div class="row">
                             <div class="col-lg-5 align-self-center">
                               <div class="left-text">
-                                <h4>Food and Lifestyle category is here</h4>
-                                <p>You can feel free to download, edit and apply this template for your website. Please tell your friends about TemplateMo website.</p>
-                                <div class="main-white-button"><a href="#"><i class="fa fa-eye"></i> Explore More</a></div>
+                                <h4>Modern Frontend & Mobile</h4>
+                                <p><strong>Frontend:</strong> React, Vue.js, Angular, TypeScript<br>
+                                <strong>Mobile:</strong> React Native, Flutter, Swift, Kotlin<br>
+                                <strong>Styling:</strong> Tailwind CSS, Material-UI, Styled Components<br>
+                                <strong>Tools:</strong> Webpack, Vite, Jest, Cypress</p>
+                                <div class="main-white-button"><a href="category.html"><i class="fa fa-eye"></i> View Frontend Projects</a></div>
                               </div>
                             </div>
                             <div class="col-lg-7 align-self-center">
                               <div class="right-image">
-                                <img src="assets/images/tabs-image-02.jpg" alt="Foods on the table">
+                                <img src="assets/images/tabs-image-02.jpg" alt="Frontend Development">
                               </div>
                             </div>
                           </div>
