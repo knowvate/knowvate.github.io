@@ -1,0 +1,74 @@
+CHRIS COATS
+Senior Software Engineer
+
+Email: MrCoats@gmail.com
+Phone: 07752 868652
+
+OBJECTIVE
+To further my experience of software engineering in a Software Architect / Developer role, 
+in a progressive, challenging, versatile environment that encourages professional and 
+personal growth and where over twenty years of varied and extensive experience in 
+Analysis, Design, Development and Infrastructure would benefit the company and its clients.
+
+TECHNICAL SKILLS
+• Languages: C#, .NET Core, MVC, Python
+• Data: SQL, JSON, XML
+• Web Technologies: JavaScript, jQuery, Angular, React, TypeScript
+• APIs: REST, SOAP, WebSockets
+• Scripting: PowerShell, Bash
+• Cloud Platforms: Amazon AWS (AZ-900), Microsoft Azure (AZ-900)
+• Infrastructure: Infrastructure as Code (IaC), Docker
+• Tools: Jira, Confluence, Git
+• Methodologies: DevOps, Agile
+• Specialization: Full Stack Development
+
+PROFESSIONAL EXPERIENCE
+
+FUJITSU - SENIOR SOFTWARE ENGINEER (2008 - Present)
+• Successfully designed, built, tested and deployed dozens of enterprise systems
+• Developed National Rail Ticketing system on AWS Cloud platform
+• Built secure accounting software using C# and virtual machines
+• Created bulk data processing applications and pipelines across various platforms
+• Developed libraries and educational software solutions
+• Implemented Infrastructure as Code (CDK) for sophisticated cloud environments
+
+LEADERSHIP & ACHIEVEMENTS
+• Several years of team leadership experience in telecommunications
+• Led graduate development teams ensuring mentorship and growth
+• Maintained business continuity for key national infrastructure projects
+• Introduced cost-saving initiatives enabling self-service for stakeholders
+• Managed exponential increases in complex order processing and management
+• Enhanced system usability, reporting, and security across multiple projects
+• Upgraded libraries and frameworks in collaboration with product suppliers
+• Established successful integrations tailored to specific business requirements
+
+EDUCATION
+
+MSC DIGITAL TRANSFORMATION & LEADERSHIP (2018-2020)
+• Distinction profile - designed for mid to senior-level executives
+• Developed digital transformation strategies and practical implementation skills
+• Mentored fellow students throughout the program
+• Comprehensive coverage: programming, cloud computing, business management
+
+BSC COMPUTING (2002-2005)
+• 2:1 Classification
+• Focus areas: programming, data analysis, systems analysis and design
+• Major project: ADC FFT real-time signal visualization solution
+
+CERTIFICATIONS & CLEARANCES
+• Security Cleared (valid until 2030)
+• Amazon Associate Solution Architect
+• Microsoft Certified Solution Developer
+• AWS Certified (AZ-900)
+• Microsoft Azure Certified (AZ-900)
+
+ADDITIONAL INTERESTS
+• Drone Photography & Videography
+• Licensed drone pilot with expertise in aerial photography
+• 4K video production and post-processing
+• Landscape and architectural photography
+
+Contact Information:
+Email: MrCoats@gmail.com
+Phone: 07752 868652
+Portfolio: https://knowvate.github.io
