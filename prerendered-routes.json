@@ -1,0 +1,9 @@
+{
+  "routes": {
+    "/": {},
+    "/contact": {},
+    "/experience": {},
+    "/login": {},
+    "/projects": {}
+  }
+}
