@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Admin Login - Chris Coats Portfolio">
+    <meta name="author" content="Chris Coats">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <title>Admin Login - Chris Coats Portfolio</title>
+    
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="assets/css/fontawesome.css">
+    <link rel="stylesheet" href="assets/css/chris-coats-portfolio.css">
+    
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #27ae60;
+            --accent-color: #e74c3c;
+        }
+        
+        body {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #34495e 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .login-container {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            padding: 3rem;
+            max-width: 450px;
+            width: 100%;
+            margin: 2rem;
+        }
+        
+        .login-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .login-header h2 {
+            color: var(--primary-color);
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        
+        .login-header p {
+            color: #7f8c8d;
+            font-size: 0.9rem;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+        
+        .form-control {
+            padding: 0.75rem;
+            border: 2px solid #ecf0f1;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+        
+        .form-control:focus {
+            border-color: var(--secondary-color);
+            box-shadow: 0 0 0 0.2rem rgba(39, 174, 96, 0.25);
+        }
+        
+        .btn-login {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 0.75rem;
+            border-radius: 8px;
+            font-weight: 600;
+            width: 100%;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .btn-login:hover {
+            background: var(--secondary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(39, 174, 96, 0.3);
+        }
+        
+        .btn-login:disabled {
+            background: #95a5a6;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        .alert {
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .alert-danger {
+            background: #fee;
+            border: 1px solid var(--accent-color);
+            color: var(--accent-color);
+        }
+        
+        .alert-success {
+            background: #efe;
+            border: 1px solid var(--secondary-color);
+            color: var(--secondary-color);
+        }
+        
+        .back-link {
+            text-align: center;
+            margin-top: 1.5rem;
+        }
+        
+        .back-link a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        .back-link a:hover {
+            color: var(--secondary-color);
+        }
+        
+        .spinner-border {
+            width: 1rem;
+            height: 1rem;
+            border-width: 2px;
+            margin-right: 0.5rem;
+        }
+        
+        .config-warning {
+            background: #fff3cd;
+            border: 1px solid #ffc107;
+            color: #856404;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-header">
+            <h2>Admin Login</h2>
+            <p>Chris Coats Portfolio Management</p>
+        </div>
+        
+        <div id="configWarning" class="config-warning" style="display: none;">
+            <strong>Configuration Required:</strong> Please update the AWS Cognito settings in this file.
+        </div>
+        
+        <div id="errorMessage" class="alert alert-danger" style="display: none;"></div>
+        <div id="successMessage" class="alert alert-success" style="display: none;"></div>
+        
+        <form id="loginForm">
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" class="form-control" id="email" required placeholder="admin@example.com">
+            </div>
+            
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" class="form-control" id="password" required placeholder="Enter your password">
+            </div>
+            
+            <button type="submit" class="btn-login" id="loginButton">
+                <span id="loginButtonText">Login</span>
+            </button>
+        </form>
+        
+        <div class="back-link">
+            <a href="index.html"><i class="fa fa-arrow-left"></i> Back to Portfolio</a>
+        </div>
+    </div>
+
+    <!-- AWS Cognito SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/amazon-cognito-identity-js@6.3.6/dist/amazon-cognito-identity.min.js"></script>
+    
+    <script>
+        // ==========================================
+        // AWS COGNITO CONFIGURATION
+        // ==========================================
+        // Configuration from CDK deployment
+        const AWS_CONFIG = {
+            region: 'eu-west-2',
+            userPoolId: 'eu-west-2_pxwtLF3WL',
+            clientId: '1r4kmbc36jg6kmkvoli6042k3t',
+            apiUrl: 'https://cjv8aostc7.execute-api.eu-west-2.amazonaws.com/prod'
+        };
+        
+        // Check if config is set
+        const isConfigured = !AWS_CONFIG.userPoolId.includes('YOUR_');
+        
+        if (!isConfigured) {
+            document.getElementById('configWarning').style.display = 'block';
+        }
+        
+        // Initialize Cognito
+        const poolData = {
+            UserPoolId: AWS_CONFIG.userPoolId,
+            ClientId: AWS_CONFIG.clientId
+        };
+        
+        const userPool = new AmazonCognitoIdentity.CognitoUserPool(poolData);
+        
+        // Check if user is already logged in
+        const currentUser = userPool.getCurrentUser();
+        if (currentUser && isConfigured) {
+            currentUser.getSession((err, session) => {
+                if (!err && session.isValid()) {
+                    // User is already logged in, redirect to admin
+                    window.location.href = 'admin.html';
+                }
+            });
+        }
+        
+        // Login form handler
+        document.getElementById('loginForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            if (!isConfigured) {
+                showError('Please configure AWS Cognito settings first.');
+                return;
+            }
+            
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            
+            setLoading(true);
+            hideMessages();
+            
+            const authenticationData = {
+                Username: email,
+                Password: password,
+            };
+            
+            const authenticationDetails = new AmazonCognitoIdentity.AuthenticationDetails(authenticationData);
+            
+            const userData = {
+                Username: email,
+                Pool: userPool
+            };
+            
+            const cognitoUser = new AmazonCognitoIdentity.CognitoUser(userData);
+            
+            cognitoUser.authenticateUser(authenticationDetails, {
+                onSuccess: (result) => {
+                    console.log('Login successful!');
+                    
+                    // Store tokens
+                    const accessToken = result.getAccessToken().getJwtToken();
+                    const idToken = result.getIdToken().getJwtToken();
+                    const refreshToken = result.getRefreshToken().getToken();
+                    
+                    // Store in localStorage
+                    localStorage.setItem('accessToken', accessToken);
+                    localStorage.setItem('idToken', idToken);
+                    localStorage.setItem('refreshToken', refreshToken);
+                    localStorage.setItem('userEmail', email);
+                    
+                    showSuccess('Login successful! Redirecting...');
+                    
+                    setTimeout(() => {
+                        window.location.href = 'admin.html';
+                    }, 1000);
+                },
+                
+                onFailure: (err) => {
+                    console.error('Login failed:', err);
+                    setLoading(false);
+                    
+                    let errorMsg = 'Login failed. Please check your credentials.';
+                    
+                    if (err.code === 'UserNotFoundException') {
+                        errorMsg = 'User not found. Please check your email.';
+                    } else if (err.code === 'NotAuthorizedException') {
+                        errorMsg = 'Incorrect username or password.';
+                    } else if (err.code === 'UserNotConfirmedException') {
+                        errorMsg = 'User is not confirmed. Please contact the administrator.';
+                    } else if (err.message) {
+                        errorMsg = err.message;
+                    }
+                    
+                    showError(errorMsg);
+                },
+                
+                newPasswordRequired: (userAttributes, requiredAttributes) => {
+                    // Handle new password requirement
+                    setLoading(false);
+                    showError('New password required. This feature is not yet implemented in this interface.');
+                }
+            });
+        });
+        
+        function setLoading(loading) {
+            const button = document.getElementById('loginButton');
+            const buttonText = document.getElementById('loginButtonText');
+            
+            if (loading) {
+                button.disabled = true;
+                buttonText.innerHTML = '<span class="spinner-border" role="status" aria-hidden="true"></span>Logging in...';
+            } else {
+                button.disabled = false;
+                buttonText.textContent = 'Login';
+            }
+        }
+        
+        function showError(message) {
+            const errorDiv = document.getElementById('errorMessage');
+            errorDiv.textContent = message;
+            errorDiv.style.display = 'block';
+        }
+        
+        function showSuccess(message) {
+            const successDiv = document.getElementById('successMessage');
+            successDiv.textContent = message;
+            successDiv.style.display = 'block';
+        }
+        
+        function hideMessages() {
+            document.getElementById('errorMessage').style.display = 'none';
+            document.getElementById('successMessage').style.display = 'none';
+        }
+    </script>
+</body>
+</html>

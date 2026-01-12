@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Admin Dashboard - Chris Coats Portfolio</title>
+    
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/fontawesome.css">
+    
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #27ae60;
+            --accent-color: #e74c3c;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: #ecf0f1;
+        }
+        
+        .navbar {
+            background: var(--primary-color);
+            padding: 1rem 0;
+        }
+        
+        .navbar-brand {
+            color: white !important;
+            font-weight: 700;
+            font-size: 1.5rem;
+        }
+        
+        .navbar .user-info {
+            color: white;
+            margin-right: 1rem;
+        }
+        
+        .btn-logout {
+            background: var(--accent-color);
+            color: white;
+            border: none;
+            padding: 0.5rem 1.5rem;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-logout:hover {
+            background: #c0392b;
+        }
+        
+        .container-main {
+            padding: 2rem 0;
+        }
+        
+        .dashboard-card {
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .dashboard-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+        
+        .stat-card {
+            background: linear-gradient(135deg, var(--primary-color), #34495e);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        
+        .stat-card h4 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-card p {
+            opacity: 0.9;
+            margin: 0;
+        }
+        
+        .table {
+            margin-top: 1rem;
+        }
+        
+        .table thead {
+            background: var(--primary-color);
+            color: white;
+        }
+        
+        .btn-primary {
+            background: var(--secondary-color);
+            border: none;
+        }
+        
+        .btn-primary:hover {
+            background: #229954;
+        }
+        
+        .loading {
+            text-align: center;
+            padding: 3rem;
+            color: #7f8c8d;
+        }
+        
+        .alert-info {
+            background: #d1ecf1;
+            border: 1px solid #bee5eb;
+            color: #0c5460;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <span class="navbar-brand">Chris Coats Portfolio - Admin</span>
+            <div class="d-flex align-items-center">
+                <span class="user-info" id="userEmail">Loading...</span>
+                <button class="btn-logout" onclick="logout()">Logout</button>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="container container-main">
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="stat-card">
+                    <h4 id="userCount">-</h4>
+                    <p>Total Users</p>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="stat-card" style="background: linear-gradient(135deg, var(--secondary-color), #1e8449);">
+                    <h4 id="contactCount">-</h4>
+                    <p>Contact Submissions</p>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="stat-card" style="background: linear-gradient(135deg, var(--accent-color), #922b21);">
+                    <h4 id="projectCount">-</h4>
+                    <p>Portfolio Projects</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="dashboard-card">
+            <h3>Recent Contact Submissions</h3>
+            <div id="contactLoading" class="loading">
+                <p>Loading contact submissions...</p>
+            </div>
+            <div id="contactTable" style="display: none;">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Message</th>
+                        </tr>
+                    </thead>
+                    <tbody id="contactTableBody">
+                    </tbody>
+                </table>
+            </div>
+            <div id="contactError" class="alert alert-info" style="display: none;">
+                No contact submissions yet.
+            </div>
+        </div>
+        
+        <div class="dashboard-card">
+            <h3>Quick Actions</h3>
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <button class="btn btn-primary btn-block" onclick="window.location.href='index.html'">
+                        <i class="fa fa-home"></i> View Public Portfolio
+                    </button>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <button class="btn btn-primary btn-block" onclick="refreshData()">
+                        <i class="fa fa-refresh"></i> Refresh Dashboard
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- AWS Cognito SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/amazon-cognito-identity-js@6.3.6/dist/amazon-cognito-identity-js.min.js"></script>
+    
+    <script>
+        // ==========================================
+        // AWS COGNITO CONFIGURATION
+        // ==========================================
+        // Configuration from CDK deployment
+        const AWS_CONFIG = {
+            region: 'eu-west-2',
+            userPoolId: 'eu-west-2_pxwtLF3WL',
+            clientId: '1r4kmbc36jg6kmkvoli6042k3t',
+            apiUrl: 'https://cjv8aostc7.execute-api.eu-west-2.amazonaws.com/prod'
+        };
+        
+        const poolData = {
+            UserPoolId: AWS_CONFIG.userPoolId,
+            ClientId: AWS_CONFIG.clientId
+        };
+        
+        const userPool = new AmazonCognitoIdentity.CognitoUserPool(poolData);
+        
+        // Check authentication on page load
+        function checkAuth() {
+            const currentUser = userPool.getCurrentUser();
+            
+            if (!currentUser) {
+                window.location.href = 'login.html';
+                return null;
+            }
+            
+            return new Promise((resolve, reject) => {
+                currentUser.getSession((err, session) => {
+                    if (err || !session.isValid()) {
+                        window.location.href = 'login.html';
+                        reject(err);
+                    } else {
+                        const idToken = session.getIdToken().getJwtToken();
+                        resolve({ user: currentUser, token: idToken, session });
+                    }
+                });
+            });
+        }
+        
+        // Logout function
+        function logout() {
+            const currentUser = userPool.getCurrentUser();
+            if (currentUser) {
+                currentUser.signOut();
+            }
+            localStorage.clear();
+            window.location.href = 'login.html';
+        }
+        
+        // Load dashboard data
+        async function loadDashboard() {
+            try {
+                const auth = await checkAuth();
+                
+                // Display user email
+                auth.user.getUserAttributes((err, attributes) => {
+                    if (!err && attributes) {
+                        const emailAttr = attributes.find(attr => attr.getName() === 'email');
+                        if (emailAttr) {
+                            document.getElementById('userEmail').textContent = emailAttr.getValue();
+                        }
+                    }
+                });
+                
+                // Load data from API
+                if (!AWS_CONFIG.apiUrl.includes('YOUR_')) {
+                    await loadContactSubmissions(auth.token);
+                    await loadStats(auth.token);
+                } else {
+                    document.getElementById('contactError').textContent = 'API not configured. Please update AWS_CONFIG in admin.html';
+                    document.getElementById('contactError').style.display = 'block';
+                    document.getElementById('contactLoading').style.display = 'none';
+                }
+            } catch (error) {
+                console.error('Error loading dashboard:', error);
+            }
+        }
+        
+        // Load contact submissions
+        async function loadContactSubmissions(token) {
+            try {
+                const response = await fetch(`${AWS_CONFIG.apiUrl}/api/admin/contact-submissions`, {
+                    headers: {
+                        'Authorization': `Bearer ${token}`,
+                        'Content-Type': 'application/json'
+                    }
+                });
+                
+                if (response.ok) {
+                    const contacts = await response.json();
+                    
+                    if (contacts.length === 0) {
+                        document.getElementById('contactError').style.display = 'block';
+                        document.getElementById('contactLoading').style.display = 'none';
+                    } else {
+                        const tbody = document.getElementById('contactTableBody');
+                        tbody.innerHTML = '';
+                        
+                        contacts.slice(0, 10).forEach(contact => {
+                            const row = document.createElement('tr');
+                            row.innerHTML = `
+                                <td>${new Date(contact.created_at).toLocaleDateString()}</td>
+                                <td>${contact.name || 'N/A'}</td>
+                                <td>${contact.email}</td>
+                                <td>${(contact.message || '').substring(0, 50)}...</td>
+                            `;
+                            tbody.appendChild(row);
+                        });
+                        
+                        document.getElementById('contactTable').style.display = 'block';
+                        document.getElementById('contactLoading').style.display = 'none';
+                    }
+                    
+                    document.getElementById('contactCount').textContent = contacts.length;
+                } else {
+                    throw new Error('Failed to load contacts');
+                }
+            } catch (error) {
+                console.error('Error loading contacts:', error);
+                document.getElementById('contactError').textContent = 'Error loading contact submissions.';
+                document.getElementById('contactError').style.display = 'block';
+                document.getElementById('contactLoading').style.display = 'none';
+            }
+        }
+        
+        // Load statistics
+        async function loadStats(token) {
+            try {
+                // Load users
+                const usersResponse = await fetch(`${AWS_CONFIG.apiUrl}/api/admin/users`, {
+                    headers: {
+                        'Authorization': `Bearer ${token}`,
+                        'Content-Type': 'application/json'
+                    }
+                });
+                
+                if (usersResponse.ok) {
+                    const users = await usersResponse.json();
+                    document.getElementById('userCount').textContent = users.length;
+                }
+                
+                // Load projects (mock for now)
+                document.getElementById('projectCount').textContent = '12';
+            } catch (error) {
+                console.error('Error loading stats:', error);
+            }
+        }
+        
+        // Refresh dashboard data
+        async function refreshData() {
+            document.getElementById('contactLoading').style.display = 'block';
+            document.getElementById('contactTable').style.display = 'none';
+            document.getElementById('contactError').style.display = 'none';
+            
+            await loadDashboard();
+        }
+        
+        // Initialize on page load
+        loadDashboard();
+    </script>
+</body>
+</html>
