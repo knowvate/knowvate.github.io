@@ -1,0 +1,21 @@
+# Chris Coats Portfolio - Robots Configuration
+
+# Allow all crawlers to index public pages
+User-agent: *
+Allow: /
+Allow: /projects
+Allow: /experience
+Allow: /contact
+
+# Disallow authenticated/protected content
+Disallow: /extra
+Disallow: /admin
+Disallow: /login
+Disallow: /auth/
+
+# Disallow direct access to CV and protected assets
+Disallow: /assets/Chris_Coats_CV.pdf
+Disallow: /assets/private/
+
+# Sitemap location (update this URL when deployed)
+Sitemap: https://knowvate.github.io/sitemap.xml
