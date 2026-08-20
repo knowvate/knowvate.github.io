@@ -12,6 +12,7 @@ Disallow: /extra
 Disallow: /admin
 Disallow: /login
 Disallow: /auth/
+Disallow: /articles
 
 # Disallow direct access to CV and protected assets
 Disallow: /assets/Chris_Coats_CV.pdf
