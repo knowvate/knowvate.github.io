@@ -12,7 +12,14 @@ Disallow: /extra
 Disallow: /admin
 Disallow: /login
 Disallow: /auth/
-Disallow: /articles
+
+# Articles: published articles are public and indexable; only the
+# auth-gated editor routes are excluded. Draft articles are additionally
+# excluded per-page via a <meta name="robots" content="noindex"> tag
+# (the API itself already never serves draft content to anonymous
+# requests, so this is defense in depth, not the only protection).
+Disallow: /articles/new
+Disallow: /articles/*/edit
 
 # Disallow direct access to CV and protected assets
 Disallow: /assets/Chris_Coats_CV.pdf
