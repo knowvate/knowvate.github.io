@@ -21,9 +21,5 @@ Disallow: /auth/
 Disallow: /articles/new
 Disallow: /articles/*/edit
 
-# Disallow direct access to CV and protected assets
-Disallow: /assets/Chris_Coats_CV.pdf
-Disallow: /assets/private/
-
 # Sitemap location (update this URL when deployed)
 Sitemap: https://knowvate.github.io/sitemap.xml
