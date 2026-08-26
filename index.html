@@ -42,26 +42,23 @@
        default-src only matters as a fallback for things like object-src/
        base-uri/form-action, which get their own tighter values here too.
        'unsafe-eval' is dropped since Angular's production AOT build doesn't
-       need it. style-src keeps 'unsafe-inline' - Angular injects component
-       styles as unnonced <style> tags at runtime, and removing it safely
-       needs CSP nonce support wired through the server render, which is a
-       bigger change than fits here.
+       need it. 'unsafe-inline' remains on script-src/style-src - Angular
+       injects component styles as unnonced <style> tags at runtime, and
+       removing it safely needs CSP nonce support wired through the server
+       render, which is a bigger change than fits here.
 
-       script-src does NOT use 'unsafe-inline': the only inline script on
-       this page is the static JSON-LD block above, allowed by its exact
-       SHA-256 hash instead - a real inline-script XSS payload (e.g. one
-       that got through a sanitizer bypass) would have a different hash and
-       still be blocked, which 'unsafe-inline' would not have caught. Two
-       hashes are listed because this file is committed with LF endings but
-       checks out as CRLF on Windows (no .gitattributes forcing LF), and the
-       CSP hash is computed over the exact bytes served - the first is the
-       LF form (a Linux CI/GitHub Actions build of this file), the second
-       is the CRLF form (a Windows-checkout build, e.g. this repo's own
-       nerdctl/local build path). Editing the JSON-LD block's content
-       requires recomputing both (`sha256sum` over exactly what's between
-       the <script> tags, base64-encoded) or this block will silently stop
-       loading (a CSP violation logged to the console, not a page error). -->
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; worker-src 'self' blob:; frame-src 'self' https://www.google.com https://maps.google.com https://www.googletagmanager.com https://drive.google.com; script-src 'self' 'sha256-fy+zMglsdjMPw8xDoM1Mcr+2mAjC784+EdRNaiZDp4Y=' 'sha256-KbiJX4BCwXkP++g8cf7eVww6CdCOMg+mc5F/W0VpoVU=' https://www.google.com https://maps.googleapis.com https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://www.google.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https: blob:; connect-src 'self' http://localhost:3000 https://api.coatsc.uk https://www.google.com https://maps.googleapis.com;">
+       A same-day attempt to drop 'unsafe-inline' from script-src (in favor
+       of hashing the one known static inline script) broke real page
+       rendering in production - the header nav lost its flex/desktop
+       layout entirely - even though it looked clean in local testing (no
+       CSP violations seen against a local build). Root cause not fully
+       identified before reverting; something in the actual production
+       bundle depends on an inline script this repo hasn't inventoried yet.
+       Re-attempting this needs the real Chrome DevTools Console open
+       against a production build (this extension's console/network
+       capture tools did not surface the CSP violation) to find exactly
+       what's being blocked before changing this again. -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; worker-src 'self' blob:; frame-src 'self' https://www.google.com https://maps.google.com https://www.googletagmanager.com https://drive.google.com; script-src 'self' 'unsafe-inline' https://www.google.com https://maps.googleapis.com https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://www.google.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https: blob:; connect-src 'self' http://localhost:3000 https://api.coatsc.uk https://www.google.com https://maps.googleapis.com;">
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
 
