@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1788430359757,
+  "timestamp": 1788441420617,
   "index": "/index.html",
   "assetGroups": [
     {
@@ -11,13 +11,13 @@
         "ignoreVary": true
       },
       "urls": [
-        "/chunk-4ER6M4LF.js",
+        "/chunk-OTOGXKDV.js",
+        "/chunk-PECVIURJ.js",
         "/chunk-QXIBXHVB.js",
-        "/chunk-UQTS72BL.js",
         "/chunk-V2AE7NDN.js",
         "/favicon.ico",
         "/index.html",
-        "/main-FJZPS3YG.js",
+        "/main-GXBLDXXV.js",
         "/manifest.webmanifest",
         "/scripts-TTWY4XDY.js",
         "/styles-755NNXOX.css"
@@ -198,9 +198,9 @@
     "/assets/images/tabs-image-05.jpg": "29f0b3592982ddbb287309bcfba7b090b0870010",
     "/assets/images/white-logo.png": "7e9d3a6101d6ffcb6f8a57f9ade0dd4a49df2d01",
     "/assets/models/duck/duck-diffuse.jpg": "5ae555f58756f5c72e47e7762535e718d5854ccd",
-    "/chunk-4ER6M4LF.js": "be68fe160eb030e49c132c49eee5f6c2374f702c",
+    "/chunk-OTOGXKDV.js": "c690c1556061bb55cdd6cc3e52d152f62118e258",
+    "/chunk-PECVIURJ.js": "85d7fa903ab69b49457f12e250e9fef0cc2bc2ae",
     "/chunk-QXIBXHVB.js": "7e0b07c5a389001acd33154ef32db0fea03d0518",
-    "/chunk-UQTS72BL.js": "f27900ac0fa17d2ed2ff46a1ae7298eeb11c6f3a",
     "/chunk-V2AE7NDN.js": "a8183276d8d15d9c998c69066f41f17e600fdad0",
     "/favicon.ico": "136d7f1a7eb5fbf2529f00b1807a80bff9cbac80",
     "/icons/icon-128x128.png": "4e5ed509ba22aeccb7e8896da0daf3b7c565464b",
@@ -211,8 +211,8 @@
     "/icons/icon-512x512.png": "0526663c5f7061c6589889759c285ebe4645253e",
     "/icons/icon-72x72.png": "ea9c334bfc46644a41f4bacfdb87616213c77af7",
     "/icons/icon-96x96.png": "da7ee73e7bf92bb4abb300fdbc10bf9ad81205d2",
-    "/index.html": "5524d62bbe64a10a0e7d04a102f9e2ab1612c420",
-    "/main-FJZPS3YG.js": "559d0812d9d9a5363de3291617047188fad40a9a",
+    "/index.html": "78a884654d04ec2d512c85e59d0840f41005ddca",
+    "/main-GXBLDXXV.js": "9e39a090ab32b13236d5dc715fd8b2276f795a69",
     "/manifest.webmanifest": "b6d0f7c52fef4810a4b8c800b9e70d197eee2a76",
     "/media/fa-brands-400-Q3XCMWHQ.woff2": "31c30351084e2670bbe5c47bd342e11540a68717",
     "/media/fa-brands-400-R2XQZCET.ttf": "da6f537cd597b76d264970f1c95e4beebc82fde9",
