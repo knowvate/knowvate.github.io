@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1788722513511,
+  "timestamp": 1788723157773,
   "index": "/index.html",
   "assetGroups": [
     {
@@ -13,11 +13,11 @@
       "urls": [
         "/chunk-D1MavJTC.js",
         "/chunk-DxqKAYlM.js",
-        "/chunk-NgV81eCf.js",
-        "/chunk-wkC11bb1.js",
+        "/chunk-ODBfAKWB.js",
+        "/chunk-ziXFMhxV.js",
         "/favicon.ico",
         "/index.html",
-        "/main-57PBLRLV.js",
+        "/main-INY3P57Q.js",
         "/manifest.webmanifest",
         "/scripts-TTWY4XDY.js",
         "/styles-755NNXOX.css"
@@ -200,8 +200,8 @@
     "/assets/models/duck/duck-diffuse.jpg": "5ae555f58756f5c72e47e7762535e718d5854ccd",
     "/chunk-D1MavJTC.js": "0527629b03f3537918fdc8d86f8f830940040c9c",
     "/chunk-DxqKAYlM.js": "629e25636bba2dde8365f3dac2d4d4e974380d25",
-    "/chunk-NgV81eCf.js": "a27867d11cb758a8a32f19737bd20e890b74954c",
-    "/chunk-wkC11bb1.js": "15421ce6a3dd91aa6e984c57b55a7a734097b238",
+    "/chunk-ODBfAKWB.js": "a405318c26a091f0cd79de3931f202872b09bc0f",
+    "/chunk-ziXFMhxV.js": "2040bfc1ae9341c08cd5020075aa68e039390e99",
     "/favicon.ico": "136d7f1a7eb5fbf2529f00b1807a80bff9cbac80",
     "/icons/icon-128x128.png": "4e5ed509ba22aeccb7e8896da0daf3b7c565464b",
     "/icons/icon-144x144.png": "206d8b03e53b918377a78f03850b0f5593af5bd8",
@@ -211,8 +211,8 @@
     "/icons/icon-512x512.png": "0526663c5f7061c6589889759c285ebe4645253e",
     "/icons/icon-72x72.png": "ea9c334bfc46644a41f4bacfdb87616213c77af7",
     "/icons/icon-96x96.png": "da7ee73e7bf92bb4abb300fdbc10bf9ad81205d2",
-    "/index.html": "42d4df4c10fe858b85d71af9c6392f54ac2b378d",
-    "/main-57PBLRLV.js": "c0c55bbd14be8d06e544ff1cba2b9296ffbfdae4",
+    "/index.html": "cf391e949b95827563cb7e58afd47ff55887dcfc",
+    "/main-INY3P57Q.js": "1ca8ec1451676fa6d3e19e86cf3e4d81376b1468",
     "/manifest.webmanifest": "b6d0f7c52fef4810a4b8c800b9e70d197eee2a76",
     "/media/fa-brands-400-Q3XCMWHQ.woff2": "31c30351084e2670bbe5c47bd342e11540a68717",
     "/media/fa-brands-400-R2XQZCET.ttf": "da6f537cd597b76d264970f1c95e4beebc82fde9",
