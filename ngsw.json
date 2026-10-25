@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1792910975791,
+  "timestamp": 1792962339200,
   "index": "/index.html",
   "assetGroups": [
     {
@@ -11,16 +11,16 @@
         "ignoreVary": true
       },
       "urls": [
-        "/chunk-BMNTAvIp.js",
+        "/chunk-B0RMFyHQ.js",
         "/chunk-DxqKAYlM.js",
         "/chunk-GXtknh9w.js",
-        "/chunk-vmh29o31.js",
+        "/chunk-Sk3wJuBt.js",
         "/favicon.ico",
         "/index.html",
-        "/main-GFPT6XBD.js",
+        "/main-OBZCZMVU.js",
         "/manifest.webmanifest",
         "/scripts-TTWY4XDY.js",
-        "/styles-YBWVYAQZ.css"
+        "/styles-73U6VLGJ.css"
       ],
       "patterns": []
     },
@@ -194,10 +194,10 @@
     "/assets/images/tabs-image-05.jpg": "29f0b3592982ddbb287309bcfba7b090b0870010",
     "/assets/images/white-logo.png": "7e9d3a6101d6ffcb6f8a57f9ade0dd4a49df2d01",
     "/assets/models/duck/duck-diffuse.jpg": "5ae555f58756f5c72e47e7762535e718d5854ccd",
-    "/chunk-BMNTAvIp.js": "d7d40aeeaa775a33778444220ec36fc24fafb399",
+    "/chunk-B0RMFyHQ.js": "acdb09b96d1b9a6fa6d0fcf93b48c830415c0927",
     "/chunk-DxqKAYlM.js": "629e25636bba2dde8365f3dac2d4d4e974380d25",
     "/chunk-GXtknh9w.js": "1c807eed117077c09aa17f7691be4817cd5b37e3",
-    "/chunk-vmh29o31.js": "58d8d46f09d07858bf6beeb7533249e916881387",
+    "/chunk-Sk3wJuBt.js": "4cf6094a2d1d1bfe932e12272ee9b4be415694ba",
     "/favicon.ico": "136d7f1a7eb5fbf2529f00b1807a80bff9cbac80",
     "/icons/icon-128x128.png": "4e5ed509ba22aeccb7e8896da0daf3b7c565464b",
     "/icons/icon-144x144.png": "206d8b03e53b918377a78f03850b0f5593af5bd8",
@@ -207,15 +207,15 @@
     "/icons/icon-512x512.png": "0526663c5f7061c6589889759c285ebe4645253e",
     "/icons/icon-72x72.png": "ea9c334bfc46644a41f4bacfdb87616213c77af7",
     "/icons/icon-96x96.png": "da7ee73e7bf92bb4abb300fdbc10bf9ad81205d2",
-    "/index.html": "311188032e2e192caad58cbbb5ebe3625b7b954a",
-    "/main-GFPT6XBD.js": "d280f07deff2bf749650a7131a6be694fd6d22a1",
+    "/index.html": "c4ffed27688334acf98ab575594626c97e83830c",
+    "/main-OBZCZMVU.js": "0cecbdc1673f489601d1982959723b62fb7c2491",
     "/manifest.webmanifest": "b6d0f7c52fef4810a4b8c800b9e70d197eee2a76",
     "/media/fa-brands-400-LA6RBN2H.woff2": "62351debfe99cebcfcde3543b2d4e5a62c1a41a7",
     "/media/fa-regular-400-NCGHE5NP.woff2": "a7406899fde6a234140ccbb5b30ad3459fa0c968",
     "/media/fa-solid-900-EFITDVWS.woff2": "594b2441e7fab230828616d89c98b2a53d53cf8e",
     "/media/fa-v4compatibility-4GXT74DT.woff2": "15dc3936f7fa2504809c50195856f9c28e48ac22",
     "/scripts-TTWY4XDY.js": "59aa489af6324127a3d773836250da08639d4b26",
-    "/styles-YBWVYAQZ.css": "747b40d9e69326d01d8b0921926adb0ff43506d6"
+    "/styles-73U6VLGJ.css": "3435d3df1ef3f0295d000accc1cdabfe559d0e24"
   },
   "navigationUrls": [
     {
