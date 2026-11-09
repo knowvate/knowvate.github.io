@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1794172748081,
+  "timestamp": 1794253473068,
   "index": "/index.html",
   "assetGroups": [
     {
@@ -11,13 +11,13 @@
         "ignoreVary": true
       },
       "urls": [
-        "/chunk-BenfAcqn.js",
-        "/chunk-CLwq1QV4.js",
+        "/chunk-BD-IxCSS.js",
+        "/chunk-BNcss_C4.js",
         "/chunk-D1cQ7Osi.js",
         "/chunk-DxqKAYlM.js",
         "/favicon.ico",
         "/index.html",
-        "/main-QGTYPBYU.js",
+        "/main-XGKRRWFE.js",
         "/manifest.webmanifest",
         "/scripts-TTWY4XDY.js",
         "/styles-73U6VLGJ.css"
@@ -194,8 +194,8 @@
     "/assets/images/tabs-image-05.jpg": "29f0b3592982ddbb287309bcfba7b090b0870010",
     "/assets/images/white-logo.png": "7e9d3a6101d6ffcb6f8a57f9ade0dd4a49df2d01",
     "/assets/models/duck/duck-diffuse.jpg": "5ae555f58756f5c72e47e7762535e718d5854ccd",
-    "/chunk-BenfAcqn.js": "e2c07ea6666f87db729ee0e9b5360cb1938afb5f",
-    "/chunk-CLwq1QV4.js": "cd458d9124ea5db26b8efac4566a3889c6404ea3",
+    "/chunk-BD-IxCSS.js": "5393d8eee3575980c923288f3401c4a0627049f0",
+    "/chunk-BNcss_C4.js": "ce9b6d8d0610ff9e78af291f26863b624b53e729",
     "/chunk-D1cQ7Osi.js": "b740293e6370e37e2b1a72eb3d4850a5a1536180",
     "/chunk-DxqKAYlM.js": "629e25636bba2dde8365f3dac2d4d4e974380d25",
     "/favicon.ico": "136d7f1a7eb5fbf2529f00b1807a80bff9cbac80",
@@ -207,8 +207,8 @@
     "/icons/icon-512x512.png": "0526663c5f7061c6589889759c285ebe4645253e",
     "/icons/icon-72x72.png": "ea9c334bfc46644a41f4bacfdb87616213c77af7",
     "/icons/icon-96x96.png": "da7ee73e7bf92bb4abb300fdbc10bf9ad81205d2",
-    "/index.html": "e1441e2e5221a9b22a9d7597fa351ec2753015d2",
-    "/main-QGTYPBYU.js": "c8e545687d79a11f2c97dc05dde3c018e9939dec",
+    "/index.html": "51caa6682716a005d239fd675491f48fe8814150",
+    "/main-XGKRRWFE.js": "1f311a4dd771fa17d41641cd102f22dd9080a506",
     "/manifest.webmanifest": "b6d0f7c52fef4810a4b8c800b9e70d197eee2a76",
     "/media/fa-brands-400-LA6RBN2H.woff2": "62351debfe99cebcfcde3543b2d4e5a62c1a41a7",
     "/media/fa-regular-400-NCGHE5NP.woff2": "a7406899fde6a234140ccbb5b30ad3459fa0c968",
