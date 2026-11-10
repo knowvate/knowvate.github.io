@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1794301345269,
+  "timestamp": 1794342794316,
   "index": "/index.html",
   "assetGroups": [
     {
@@ -11,13 +11,13 @@
         "ignoreVary": true
       },
       "urls": [
-        "/chunk-BQVVhQqd.js",
-        "/chunk-CvEHVWgi.js",
         "/chunk-D1cQ7Osi.js",
+        "/chunk-DnBw-heP.js",
         "/chunk-DxqKAYlM.js",
+        "/chunk-XZCAxNPC.js",
         "/favicon.ico",
         "/index.html",
-        "/main-AJ4M5M2N.js",
+        "/main-ABYV72DP.js",
         "/manifest.webmanifest",
         "/scripts-TTWY4XDY.js",
         "/styles-73U6VLGJ.css"
@@ -194,10 +194,10 @@
     "/assets/images/tabs-image-05.jpg": "29f0b3592982ddbb287309bcfba7b090b0870010",
     "/assets/images/white-logo.png": "7e9d3a6101d6ffcb6f8a57f9ade0dd4a49df2d01",
     "/assets/models/duck/duck-diffuse.jpg": "5ae555f58756f5c72e47e7762535e718d5854ccd",
-    "/chunk-BQVVhQqd.js": "53e73b16fa0e6b04ad5193695cbabef070b84b86",
-    "/chunk-CvEHVWgi.js": "184c0993203be49d8c0de1c98049b07cb0be4dcb",
     "/chunk-D1cQ7Osi.js": "b740293e6370e37e2b1a72eb3d4850a5a1536180",
+    "/chunk-DnBw-heP.js": "6c4b693d0d67a97747a68cea5e72655b5a1fd1b0",
     "/chunk-DxqKAYlM.js": "629e25636bba2dde8365f3dac2d4d4e974380d25",
+    "/chunk-XZCAxNPC.js": "1b884d354126edaedf447f7ead24980b6858719a",
     "/favicon.ico": "136d7f1a7eb5fbf2529f00b1807a80bff9cbac80",
     "/icons/icon-128x128.png": "4e5ed509ba22aeccb7e8896da0daf3b7c565464b",
     "/icons/icon-144x144.png": "206d8b03e53b918377a78f03850b0f5593af5bd8",
@@ -207,8 +207,8 @@
     "/icons/icon-512x512.png": "0526663c5f7061c6589889759c285ebe4645253e",
     "/icons/icon-72x72.png": "ea9c334bfc46644a41f4bacfdb87616213c77af7",
     "/icons/icon-96x96.png": "da7ee73e7bf92bb4abb300fdbc10bf9ad81205d2",
-    "/index.html": "0183583a6dedfe5d1613c783814348f5fa204e11",
-    "/main-AJ4M5M2N.js": "0afec42335b58ae9b7352ef08747588a4e3cd8cc",
+    "/index.html": "52efc759d99d6ad117e47dd9f92cd9afab4efa7e",
+    "/main-ABYV72DP.js": "e7cb08fc6f0a989c35583c07dade2eb3436d74db",
     "/manifest.webmanifest": "b6d0f7c52fef4810a4b8c800b9e70d197eee2a76",
     "/media/fa-brands-400-LA6RBN2H.woff2": "62351debfe99cebcfcde3543b2d4e5a62c1a41a7",
     "/media/fa-regular-400-NCGHE5NP.woff2": "a7406899fde6a234140ccbb5b30ad3459fa0c968",
