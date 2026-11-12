@@ -26,6 +26,18 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://knowvate.github.io/articles/every-page-a-404-giving-an-angular-site-on-github-pages-real-urls</loc>
+    <lastmod>2026-11-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://knowvate.github.io/articles/an-approval-gate-azure-enforces-three-environments-in-one-subscription</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://knowvate.github.io/articles/reviving-an-arduino-control-panel-a-service-pointing-nowhere-an-empty-contact-list-and-three-races</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
@@ -134,14 +146,20 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://knowvate.github.io/articles/quota-walls-and-sku-traps-getting-azure-functions-onto-a-vnet</loc>
-    <lastmod>2026-10-10</lastmod>
+    <loc>https://knowvate.github.io/articles/a-multi-region-azure-stack-for-0-39</loc>
+    <lastmod>2026-10-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://knowvate.github.io/articles/testing-terraform-for-free-and-two-checkov-bugs</loc>
     <lastmod>2026-10-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://knowvate.github.io/articles/quota-walls-and-sku-traps-getting-azure-functions-onto-a-vnet</loc>
+    <lastmod>2026-10-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -154,12 +172,6 @@
   <url>
     <loc>https://knowvate.github.io/articles/github-oidc-to-azure-the-two-errors-the-tutorials-skip</loc>
     <lastmod>2026-10-06</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://knowvate.github.io/articles/a-multi-region-azure-stack-for-0-39</loc>
-    <lastmod>2026-10-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -255,19 +267,19 @@
   </url>
   <url>
     <loc>https://knowvate.github.io/articles/the-cicd-pipeline-current-state-and-target-state</loc>
-    <lastmod>2026-10-27</lastmod>
+    <lastmod>2026-11-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://knowvate.github.io/articles/authentication-and-three-roles</loc>
-    <lastmod>2026-10-23</lastmod>
+    <lastmod>2026-11-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://knowvate.github.io/articles/the-backend-express-knex-and-one-postgres-pod</loc>
-    <lastmod>2026-11-01</lastmod>
+    <lastmod>2026-11-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>

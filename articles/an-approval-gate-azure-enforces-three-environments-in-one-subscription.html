@@ -1,0 +1,119 @@
+<!-- Copyright (c) 2026 Chris Coats. All rights reserved. -->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="A public demo pipeline that promotes one build through Development, UAT and Production in a single Azure subscription - two identities per environment, a read-only plan role, the exact saved plan applied after approval, and the GitHub default that lets admins skip the gate.">
+  <meta name="author" content="Chris Coats">
+  <meta name="theme-color" content="#2c3e50">
+  <link rel="canonical" href="https://knowvate.github.io/articles/an-approval-gate-azure-enforces-three-environments-in-one-subscription">
+
+  <!-- Open Graph / social share preview -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="An Approval Gate Azure Enforces: Three Environments in One Subscription - Chris Coats">
+  <meta property="og:description" content="A public demo pipeline that promotes one build through Development, UAT and Production in a single Azure subscription - two identities per environment, a read-only plan role, the exact saved plan applied after approval, and the GitHub default that lets admins skip the gate.">
+  <meta property="og:url" content="https://knowvate.github.io/articles/an-approval-gate-azure-enforces-three-environments-in-one-subscription">
+  <meta property="og:image" content="https://knowvate.github.io/assets/images/banner-bg.jpg">
+  <meta property="profile:first_name" content="Chris">
+  <meta property="profile:last_name" content="Coats">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="An Approval Gate Azure Enforces: Three Environments in One Subscription - Chris Coats">
+  <meta name="twitter:description" content="A public demo pipeline that promotes one build through Development, UAT and Production in a single Azure subscription - two identities per environment, a read-only plan role, the exact saved plan applied after approval, and the GitHub default that lets admins skip the gate.">
+  <meta name="twitter:image" content="https://knowvate.github.io/assets/images/banner-bg.jpg">
+
+  <!-- Structured data - helps search engines associate "Chris Coats" with "software engineer" -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Chris Coats",
+    "jobTitle": "Senior Software Engineer",
+    "url": "https://knowvate.github.io/",
+    "sameAs": [
+      "https://github.com/knowvate/",
+      "https://www.linkedin.com/in/chris-c-b0a12548/"
+    ],
+    "knowsAbout": ["Full-Stack Development", "Cloud Architecture", "C#", ".NET Core", "Python", "AWS", "Azure", "DevOps", "Kubernetes"]
+  }
+  </script>
+
+  <!-- default-src is intentionally tight ('self' only) - every resource type
+       this app actually loads has its own explicit directive below, so
+       default-src only matters as a fallback for things like object-src/
+       base-uri/form-action, which get their own tighter values here too.
+
+       script-src is 'self' only: the app loads no third-party scripts (the
+       contact page's Google Map is an iframe - frame-src), and no inline
+       ones. The login token lives in localStorage, so this is what stops an
+       injected script from reading it. Two things keep it that way:
+       - angular.json turns off critical-CSS inlining (inlineCritical). It
+         adds an inline <script> that switches the stylesheets from
+         media="print" to "all"; blocked, the page renders with no CSS at
+         all. That's what broke the header layout when 'unsafe-inline' was
+         first dropped.
+       - scripts/check-csp.mjs fails CI and the deploy if the built
+         index.html gains an inline script or event handler, or this policy
+         loosens script-src or allows a plain-http/localhost connection.
+       The JSON-LD block above is a data block, not a script, so CSP doesn't
+       apply to it.
+
+       'unsafe-inline' remains on style-src: Angular injects component
+       styles as unnonced <style> tags at runtime.
+
+       media-src allows blob: for the Drive preview, which fetches a file
+       with the auth header and plays it from an in-memory blob: URL.
+
+       connect-src has no localhost: local dev (ng serve) proxies /api to the
+       backend (proxy.conf.js), so it's same-origin there too. -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; worker-src 'self' blob:; frame-src 'self' https://www.google.com https://maps.google.com https://drive.google.com; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://www.google.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https: blob:; media-src 'self' blob: https://api.coatsc.uk; connect-src 'self' https://api.coatsc.uk;">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
+
+  <title>An Approval Gate Azure Enforces: Three Environments in One Subscription - Chris Coats</title>
+  <base href="/">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  
+  <!-- Add custom favicon as data URL for professional branding -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHZpZXdCb3g9IjAgMCAzMiAzMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiByeD0iNCIgZmlsbD0iIzJjM2U1MCIvPgo8dGV4dCB4PSI1IiB5PSIyNCIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE4IiBmb250LXdlaWdodD0iYm9sZCIgZmlsbD0id2hpdGUiPkNDPC90ZXh0Pgo8L3N2Zz4K">
+  
+  <!-- Custom Portfolio Styles -->
+  <style>
+    :root {
+      --primary-color: #2c3e50;
+      --secondary-color: #27ae60;
+      --accent-color: #e74c3c;
+      --text-color: #2c3e50;
+      --light-bg: #ecf0f1;
+    }
+    .tech-stack {
+      background: var(--light-bg);
+      padding: 2rem 0;
+    }
+    .tech-item {
+      text-align: center;
+      padding: 1rem;
+      margin: 0.5rem;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+    .tech-item:hover {
+      transform: translateY(-5px);
+    }
+    .main-button a {
+      background: var(--primary-color) !important;
+      color: white !important;
+    }
+    .main-button a:hover {
+      background: var(--secondary-color) !important;
+    }
+  </style>
+  <link rel="manifest" href="manifest.webmanifest">
+<link rel="stylesheet" href="styles-5NDYRKI4.css"></head>
+<body>
+  <app-root></app-root>
+  <noscript>Please enable JavaScript to continue using this application.</noscript>
+<script src="scripts-TTWY4XDY.js" defer></script><script src="main-6XQTZG4X.js" type="module"></script></body>
+</html>
